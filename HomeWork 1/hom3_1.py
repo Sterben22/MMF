@@ -66,7 +66,7 @@ def tests3():
     plt.ylabel('Eje y')
     plt.xticks(np.arange(-5, 6, step=1))
     plt.yticks(np.arange(-5, 6, step=1))
-    plt.title(r'Campo Vectorial v = \frac{xi}{(x^2 + y^2)^{\frac{3}{2}}}+ \frac{yj}{(x^2 + y^2)^{\frac{3}{2}}}', fontsize=14)
+    plt.title(r'Campo Vectorial v = $\frac{xi}{(x^2 + y^2)^{\frac{3}{2}}}+ \frac{yj}{(x^2 + y^2)^{\frac{3}{2}}}$', fontsize=14)
     # Mostrar la cuadrícula y los vectores
     plt.grid(True)
     plt.tight_layout()
@@ -91,7 +91,7 @@ def tests4():
     plt.ylabel('Eje y')
     plt.xticks(np.arange(-5, 6, step=1))
     plt.yticks(np.arange(-5, 6, step=1))
-    plt.title(r'Campo Vectorial v =\frac{3xy}{r⁵}i + \frac{2y²-x²}{r⁵}j=\frac{3xy}{(x^2 + y^2)^{\frac{5}{2}}}i + \frac{2y²-x²}{(x^2 + y^2)^{\frac{5}{2}}}j', fontsize=14)
+    plt.title(r'Campo Vectorial v =$\frac{3xy}{r⁵}i + \frac{2y²-x²}{r⁵}j=\frac{3xy}{(x^2 + y^2)^{\frac{5}{2}}}i + \frac{2y²-x²}{(x^2 + y^2)^{\frac{5}{2}}}j$', fontsize=14)
     # Mostrar la cuadrícula y los vectores
     plt.grid(True)
     plt.tight_layout()
@@ -114,7 +114,30 @@ def tests5():
     plt.ylabel('Eje y')
     plt.xticks(np.arange(-5, 6, step=1))
     plt.yticks(np.arange(-5, 6, step=1))
-    plt.title(r'Campo Vectorial v = xi -yj', fontsize=14)
+    plt.title(r'Campo Vectorial v = $xi -yj$', fontsize=14)
+    # Mostrar la cuadrícula y los vectores
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+
+def tests6():
+    #Creando malla de valores
+    x = np.linspace(-5, 5, 10)
+    y = np.linspace(-5, 5, 10)
+    X,Y = np.meshgrid(x, y)
+    #Creando vectores
+    U = 1/np.sqrt(2)
+    V = -1/np.sqrt(2)
+    #Creando entorno de dibujo
+    plt.figure(figsize=(8,6))
+    # Dibujar los vectores
+    plt.quiver(X, Y, U, V, color='b', linewidth=1.5)
+    # Configurar los ejes
+    plt.xlabel('Eje x')
+    plt.ylabel('Eje y')
+    plt.xticks(np.arange(-5, 6, step=1))
+    plt.yticks(np.arange(-5, 6, step=1))
+    plt.title(r'Campo Vectorial v = $\frac{1}{\sqrt{2}}(i - j)$', fontsize=14)
     # Mostrar la cuadrícula y los vectores
     plt.grid(True)
     plt.tight_layout()
@@ -123,10 +146,11 @@ def tests5():
 if __name__ == "__main__":
     t = True
     while t:
-        match int(input("\nSeleccione una opcion:\n 1.- Ejercicio 1\n 2.- Ejercicio 2\n 3.- Ejercicio 3\n 4.- Ejercicio 4\n 5.- Ejercicio 5\n 6.- Salir\n --> ")):
+        match int(input("\nSeleccione una opcion:\n 1.- Ejercicio 1\n 2.- Ejercicio 2\n 3.- Ejercicio 3\n 4.- Ejercicio 4\n 5.- Ejercicio 5\n 6.- Ejercicio 6\n 7.- Salir\n --> ")):
             case 1: tests1()
             case 2: tests2()
             case 3: tests3()
             case 4: tests4()
             case 5: tests5()
-            case 6: exit()
+            case 6: tests6()
+            case 7: exit()
