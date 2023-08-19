@@ -135,7 +135,7 @@ def tests6():
     plt.ylabel('Eje y')
     plt.xticks(np.arange(-5, 6, step=1))
     plt.yticks(np.arange(-5, 6, step=1))
-    plt.title(r'Campo Vectorial: v = $cos(x)i + sin(y)j$', fontsize=14)
+    plt.title(r'Campo Vectorial: v = $cos(x)i + sin(y)$', fontsize=14)
     # Mostrar la cuadrícula y los vectores
     plt.grid(True)
     plt.tight_layout()

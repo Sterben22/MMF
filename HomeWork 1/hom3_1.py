@@ -8,7 +8,7 @@ def tests1():
     x = np.linspace(-5, 5, 10)
     y = np.linspace(-5, 5, 10)
     X, Y = np.meshgrid(x, y)
-    # Definir los componentes del campo vectorial v = 3i - 5j
+    # Definir los componentes del campo vectorial
     U = 3 * np.ones_like(X)
     V = -5* np.ones_like(Y)
     # Crear la figura
@@ -30,7 +30,7 @@ def tests2():
     x = np.linspace(-5, 5, 15)
     y = np.linspace(-5, 5, 15)
     X, Y = np.meshgrid(x, y)
-    # Definir los componentes del campo vectorial v = r = xi + yj
+    # Definir los componentes del campo vectorial 
     U = X
     V = Y
     # Crear la figura
@@ -54,7 +54,7 @@ def tests3():
     X, Y = np.meshgrid(x, y)
     # Ocultando la advertencia
     np.seterr(invalid='ignore')
-    # Definir los componentes del campo vectorial v = 3i + 5j
+    # Definir los componentes del campo vectorial 
     U = X/np.sqrt((X**2+Y**2)**3)
     V = Y/np.sqrt((X**2+Y**2)**3)
      # Crear la figura
@@ -79,7 +79,7 @@ def tests4():
     X, Y = np.meshgrid(x, y)
     # Ocultando la advertencia
     np.seterr(invalid='ignore')
-    # Definir los componentes del campo vectorial v = 3i + 5j
+    # Definir los componentes del campo vectorial
     U = (3*Y*X)/np.sqrt((X**2+Y**2)**5)
     V = (2*(Y**2) - X**2 )/np.sqrt((X**2+Y**2)**3)
      # Crear la figura
@@ -102,7 +102,7 @@ def tests5():
     x = np.linspace(-5, 5, 15)
     y = np.linspace(-5, 5, 15)
     X, Y = np.meshgrid(x, y)
-    # Definir los componentes del campo vectorial v = 3i + 5j
+    # Definir los componentes del campo vectorial
     U = X
     V = -Y
      # Crear la figura
