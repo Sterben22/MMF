@@ -88,11 +88,11 @@ def tests3():
 
 def tests4():
     # Creando malla de valores
-    x = np.linspace(-5, 5, 1000)
-    y = np.linspace(-5, 5, 1000)
+    x = np.linspace(-4, 4, 1000)
+    y = np.linspace(-4, 4, 1000)
     X, Y = np.meshgrid(x, y)
-    # Calcula solo para los valores válidos, asigna cero a los valores negativos
-    Z = np.where(16 - X**2 - Y**2 >= 0, np.sqrt(16 - X**2 - Y**2), 0)
+    # Calculo de los valores 
+    Z = np.sqrt(16 - X**2 - Y**2)
     # Creando entorno 3D
     fig = plt.figure(figsize=(8, 6))
     ax2 = fig.add_subplot(111, projection="3d")
