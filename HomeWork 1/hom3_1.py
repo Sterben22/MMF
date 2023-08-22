@@ -12,7 +12,7 @@ def tests1():
     U = 3 * np.ones_like(X)
     V = -5* np.ones_like(Y)
     # Crear la figura
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(8,6))
     # Dibujar los vectores
     plt.quiver(X, Y, U, V, color='b', linewidth=1.5)
     # Configurar los ejes
@@ -34,7 +34,7 @@ def tests2():
     U = X
     V = Y
     # Crear la figura
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(8,6))
     # Dibujar los vectores
     plt.quiver(X, Y, U, V, color='b', linewidth=1.5)
     # Configurar los ejes
@@ -58,7 +58,7 @@ def tests3():
     U = X/np.sqrt((X**2+Y**2)**3)
     V = Y/np.sqrt((X**2+Y**2)**3)
      # Crear la figura
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(8,6))
     # Dibujar los vectores
     plt.quiver(X, Y, U, V, color='b', linewidth=1.5)
     # Configurar los ejes
@@ -74,8 +74,8 @@ def tests3():
 
 def tests4():
     # Crear una malla de coordenadas
-    x = np.linspace(-5, 5, 15)
-    y = np.linspace(-5, 5, 15)
+    x = np.linspace(-10, 10, 10)
+    y = np.linspace(-10, 10, 10)
     X, Y = np.meshgrid(x, y)
     # Ocultando la advertencia
     np.seterr(invalid='ignore')
@@ -83,14 +83,15 @@ def tests4():
     U = (3*Y*X)/np.sqrt((X**2+Y**2)**5)
     V = (2*(Y**2) - X**2 )/np.sqrt((X**2+Y**2)**3)
      # Crear la figura
-    plt.figure(figsize=(8, 6))
+    fig, ax = plt.subplots(figsize=(8,6))
+    ax.set_aspect("equal")
     # Dibujar los vectores
-    plt.quiver(X, Y, U, V, color='b', linewidth=1.5)
+    plt.streamplot(X, Y, U, V, color='b', linewidth=1.5)
     # Configurar los ejes
     plt.xlabel('Eje x')
     plt.ylabel('Eje y')
-    plt.xticks(np.arange(-5, 6, step=1))
-    plt.yticks(np.arange(-5, 6, step=1))
+    plt.xticks(np.arange(-10, 11, step=1))
+    plt.yticks(np.arange(-10, 11, step=1))
     plt.title(r'Campo Vectorial v =$\frac{3xy}{r⁵}i + \frac{2y²-x²}{r⁵}j=\frac{3xy}{(x^2 + y^2)^{\frac{5}{2}}}i + \frac{2y²-x²}{(x^2 + y^2)^{\frac{5}{2}}}j$', fontsize=14)
     # Mostrar la cuadrícula y los vectores
     plt.grid(True)
@@ -106,7 +107,7 @@ def tests5():
     U = X
     V = -Y
      # Crear la figura
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(8,6))
     # Dibujar los vectores
     plt.quiver(X, Y, U, V, color='b', linewidth=1.5)
     # Configurar los ejes
