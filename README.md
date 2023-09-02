@@ -1,4 +1,4 @@
-#User: Sterben
+#User: Diego Espinoza
 
 Curso: Modelos Matemáticos de la Física
 Ciclo: 2023-II
