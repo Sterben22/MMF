@@ -14,6 +14,6 @@ Animación del movimiento del electrón con el transcurso del tiempo.
 ```
 
 
-Psdt: El codigo puede mejorar, pero por el momento cumple con lo pedido.
+#### Psdt: El codigo puede mejorar, pero por el momento cumple con lo pedido.
 
-==== THANKS ====
+**==== THANKS ====**
