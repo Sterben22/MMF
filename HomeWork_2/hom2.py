@@ -12,7 +12,7 @@ d = 2                                   # Distancia
 Q = q = pow(10,-6)                      # Carga Electrica
 m = 9.11 * pow(10,-31)                  # Masa
 
-w = np.sqrt((16*K*Q*q)/(m*pow(d,3)))    # Frecuencia
+w = np.sqrt((16*K*Q*q)/(m*pow(d,3)))    # Velocidad Angular
 
 def animate(dt):
     fig.clear()
