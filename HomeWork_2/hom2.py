@@ -22,11 +22,11 @@ def animate(dt):
     X = A*np.cos(w*t[dt]*pow(10,-10))
     Y = np.zeros_like(X)
     ax.plot(X, Y, 'bo')
-    ax.set_xlim(-A-0.015, A+0.015)
+    ax.set_xlim(-A-0.0025, A+0.0025)
     ax.set_ylim(-d, d)
     ax.set_xlabel("X")
     ax.set_ylabel("Y")
-    ax.set_title(f"Posición en t = {t[dt]:.2f}"+r"$\times$ $10^{-10}$")
+    ax.set_title(f"Posición en x = {X:.3f} en el tiempo t = {t[dt]:.2f}"+r"$\times$ $10^{-10}$")
     ax.grid()
 
 
