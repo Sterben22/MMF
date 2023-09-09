@@ -31,4 +31,4 @@ def animate(dt):
 
 
 anim = FuncAnimation(fig, animate, len(t))
-anim.save("2.mp4", fps=15, dpi = 300)
+anim.save("animacion.mp4", fps=15, dpi = 300)
