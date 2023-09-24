@@ -1,7 +1,6 @@
 import numpy as np
 import math
 
-
 class CampoResultante:
     def __init__(self, x, y) -> None:
         self.pos = (x, y)
@@ -41,8 +40,8 @@ class CampoResultante:
 
         
 
-class Carga:
-    def __init__(self, carga=1.602e-19, x=0, y=0) -> None:
+class Particula:
+    def __init__(self, carga=1.6e-19, x=0, y=0) -> None:
         self.q = carga
         self.pos = (x, y)
         self.campo = (0, 0) 
@@ -51,8 +50,13 @@ class Carga:
     def calc_Er(self, pos):
         k = 9e9
         r = np.sqrt((pos[0] - self.pos[0])**2 + (pos[1] - self.pos[1])**2)
-        temp = (k * self.q) / r**3
-        self.campo = (temp * (pos[0] - self.pos[0]), temp * (pos[1] - self.pos[1]))
+        temp = (k * abs(self.q)) / r**3
+        
+        #Si la particula es un electron o proton
+        if self.q > 0:
+            self.campo = (temp * (pos[0] - self.pos[0]), temp * (pos[1] - self.pos[1]))
+        else:
+            self.campo = (temp * (self.pos[0] - pos[0]), temp * (self.pos[1] - pos[1]))
 
 # Devulve la suma de todos los campos
 def resultante(list_carga):
@@ -70,15 +74,15 @@ if __name__ == "__main__":
         list_carga = []
 
         #Aviso de uso de Notacion Cientifica
-        print("Recuerda poner en notacion cientifica (nem es n x 10^{m})")
+        print("Recuerda poner en notacion cientifica (nem <> n x 10^{m})")
 
         # Guardando los datos de cada carga en el Plano
         for i in range(n):
-            carga_input = input(f"\nEnter the electric charge for the charge. {i + 1}\n(default 1.602e-19, press Enter for default): ")
-            carga = float(carga_input) if carga_input else 1.602e-19
+            carga_input = input(f"\nEnter the electric charge for the charge. {i + 1}\n(default 1.6e-19, press Enter for default): ")
+            carga = float(carga_input) if carga_input else 1.6e-19
             x = float(input(f"Enter the X-coordinate for the charge {i + 1}: "))
             y = float(input(f"Enter the Y-coordinate for the charge {i + 1}: "))
-            list_carga.append(Carga(carga, x, y))
+            list_carga.append(Particula(carga, x, y))
         
         # Posicion en donde se calculara el Campo Electrico
         print("\nNow you will enter the coordinates where you want to calculate the Electric Field.")
@@ -87,8 +91,8 @@ if __name__ == "__main__":
         pos = (pos_x, pos_y)
 
         # Hallan el Campo que hay entre el punto y la carga
-        for carga in list_carga:
-            carga.calc_Er(pos)
+        for particula in list_carga:
+            particula.calc_Er(pos)
         
         # Suma de los Campos electricos
         resultado = resultante(list_carga)
@@ -97,8 +101,12 @@ if __name__ == "__main__":
         Er.calcAngle()
 
         # Imprimiendo resultados
-        print(f"La magnitud del campo electrico es {Er.modulo:.2e} o {Er.pos[0]:.2e}i + {Er.pos[1]:.2e}j")
-        print(f"El angulo con el eje X es {Er.angleX:.2f} o {Er.angle:.2f}")
+        if Er.pos[1]>= 0:
+            print(f"\nThe vector notation of the electric field is {Er.pos[0]:.2e}i + {Er.pos[1]:.2e}j")
+        else: 
+            print(f"\nThe vector notation of the electric field is {Er.pos[0]:.2e}i - {-Er.pos[1]:.2e}j")
+        print(f"The magnitude of the electric field is {Er.modulo:.2e}")
+        print(f"The direction of the electric field is  {Er.angle:.2f}")
 
     # ValueError: Si la cadena de texto ingresada no se puede convertir en un número válido.
     except ValueError:

@@ -1,7 +1,6 @@
 import numpy as np
 import math
 
-
 class CampoResultante3D:
     def __init__(self, x, y, z) -> None:
         self.pos = (x, y, z)
@@ -22,11 +21,16 @@ class Carga:
         self.campo = (0, 0, 0) 
 
     # Calcula el campo que hay entre la carga y el punto (x,y)
+    
     def calc_Er(self, pos):
         k = 9e9
         r = np.sqrt((pos[0] - self.pos[0])**2 + (pos[1] - self.pos[1])**2 + (pos[2] - self.pos[2])**2)
-        temp = (k * self.q) / r**3
-        self.campo = (temp * (pos[0] - self.pos[0]), temp * (pos[1] - self.pos[1]), temp * (pos[2] - self.pos[2]))
+        temp = (k * abs(self.q)) / r**3
+        # Si la particula es un electron o proton
+        if self.q > 0:
+            self.campo = (temp * (pos[0] - self.pos[0]), temp * (pos[1] - self.pos[1]), temp * (pos[2] - self.pos[2]))
+        else:
+            self.campo = (temp * (self.pos[0] - pos[0]), temp * (self.pos[1] - pos[1]), temp * (self.pos[2] - pos[2]))
 
 # Devulve la suma de todos los campos
 def resultante(list_carga):
@@ -53,7 +57,9 @@ if __name__ == "__main__":
             x = float(input(f"Enter the X-coordinate for the charge {i + 1}: "))
             y = float(input(f"Enter the Y-coordinate for the charge {i + 1}: "))
             z = float(input(f"Enter the Z-coordinate for the charge {i + 1}: "))
-            list_carga.append(Carga(carga, x, y, z))
+            if carga >=0 :
+                list_carga.append(Carga(carga, x, y, z))
+            else: list_carga.append(Carga(abs(carga), -x, -y, -z))
         
         # Posicion en donde se calculara el Campo Electrico
         print("\nNow you will enter the coordinates where you want to calculate the Electric Field.")
@@ -73,8 +79,17 @@ if __name__ == "__main__":
         Er.direcAngles()
 
         # Imprimiendo resultados
-        print(f"La magnitud del campo electrico es {Er.modulo:.2e} o {Er.pos[0]:.2e}i + {Er.pos[1]:.2e}j + {Er.pos[2]:.2e}k")
-        print(f"El angulo de inclinacion en:\nX: {Er.direc_angle[0]:.2f}°\nY: {Er.direc_angle[1]:.2f}°\nZ: {Er.direc_angle[2]:.2f}°")
+        if Er.pos[1]>= 0 and Er.pos[0] >= 0:
+            print(f"\nThe vector notation of the electric field is {Er.pos[0]:.2e}i + {Er.pos[1]:.2e}j + {Er.pos[2]:.2e}k")
+        elif Er.pos[1] < 0 and Er.pos[0] >= 0:
+            print(f"\nThe vector notation of the electric field is {Er.pos[0]:.2e}i - {-Er.pos[1]:.2e}j + {Er.pos[2]:.2e}k")
+        elif Er.pos[1] >= 0 and Er.pos[0] < 0:
+            print(f"\nThe vector notation of the electric field is {Er.pos[0]:.2e}i + {Er.pos[1]:.2e}j - {-Er.pos[2]:.2e}k")
+        else:
+            print(f"\nThe vector notation of the electric field is {Er.pos[0]:.2e}i - {-Er.pos[1]:.2e}j - {-Er.pos[2]:.2e}k")
+
+        print(f"The magnitude of the electric field is {Er.modulo:.2e}")
+        print(f"The inclination angle on the:\nX-axis: {Er.direc_angle[0]:.2f}°\nY-axis: {Er.direc_angle[1]:.2f}°\nZ-axis: {Er.direc_angle[2]:.2f}°")
 
     # ValueError: Si la cadena de texto ingresada no se puede convertir en un número válido.
     except ValueError:
