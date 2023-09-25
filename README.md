@@ -12,6 +12,11 @@ Asimismo, el directorio tendrá el nombre de cada tarea.
 ```
 Animación del movimiento del electrón con el transcurso del tiempo. 
 ```
+## **HomeWork 3**
+```
+Animación y dibujo de un campo electrico.
+```
+
 
 
 #### Psdt: El codigo puede mejorar, pero por el momento cumple con lo pedido.
