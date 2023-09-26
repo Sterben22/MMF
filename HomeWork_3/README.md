@@ -11,6 +11,7 @@ Para el apartado "2", los documentos son:
 - Para la parte *2a* y *2b*, tenemos el código **Er_2D.py.**
 - Para la parte *2d*, tenemos el código **Er_3D.py.**
 '''
+
 Para el apartado "3", el documento es:
 '''
 - El documento **exercise_3.py** resuelve el apartado *3a*, *3b* y *3c*.
