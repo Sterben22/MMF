@@ -39,10 +39,9 @@ class CampoResultante:
             self.angleX = 360.0 - self.angle
 
         
-
 class Particula:
-    def __init__(self, carga=1.6e-19, x=0, y=0) -> None:
-        self.q = carga
+    def __init__(self, charge=1.6e-19, x=0, y=0) -> None:
+        self.q = charge
         self.pos = (x, y)
         self.campo = (0, 0) 
 

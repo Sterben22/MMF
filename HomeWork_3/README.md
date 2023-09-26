@@ -1,13 +1,22 @@
-## **HomeWork 3**
+## **Homework 3**
 
-Para el apartado "1" los documentos son 
-- **movElec_mp4** : Produce un video del movimiento de un electron en un campo electrico
-- **movElec_png** : Procuce una imagen con las posiciones del movimiento de un electron en un campo electrico
+Para el apartado "1", los documentos son:
+'''
+- *1a* --> **movElec_png.py:** Produce una imagen con las posiciones del movimiento de un electrón en un campo eléctrico.
+- *1b* --> **movElec_mp4.py:** Produce un video del movimiento de un electrón en un campo eléctrico.
+'''
 
-Para el apartado "2" los documentos son 
-- **Er_2D** : Calcula el campo electrico en el plano XY que producen varias particulas en un punto dado
-- **Er_3D**: Calcula el campo electrico en el plano XYz que producen varias particulas en un punto dado
-
+Para el apartado "2", los documentos son:
+'''
+- Para la parte *2a* y *2b*, tenemos el código **Er_2D.py.**
+- Para la parte *2d*, tenemos el código **Er_3D.py.**
+'''
+Para el apartado "3", el documento es:
+'''
+- El documento **exercise_3.py** resuelve el apartado *3a*, *3b* y *3c*.
+- En el dibujo para el electrón, es un círculo rojo.
+- En el dibujo para el protón, es un círculo azul.
+'''
 
 
 #### Psdt: El codigo puede mejorar, pero por el momento cumple con lo pedido.

@@ -1,5 +1,3 @@
-# El codigo te crea una imagen con la traza de un electro con el  tiempo 
-
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import ScalarFormatter 
