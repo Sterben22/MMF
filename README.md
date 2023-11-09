@@ -18,7 +18,7 @@ Animación y dibujo de un campo electrico.
 ```
 ## **[HomeWork 4](https://github.com/Sterben22/MMF/tree/main/HomeWork_4)**
 ```
-Codigo de superficie quepotencial
+Codigo de superficie equipotencial
 ```
 
 
